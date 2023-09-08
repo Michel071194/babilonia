@@ -1,0 +1,16 @@
+.navBar {
+ width: 99%;
+ height: 60px;
+ background-color: bisque;
+ display: flex;
+ align-items: center;
+ padding: 20px;
+ 
+ justify-content: space-between;
+
+}
+
+.title {
+    size: 150px;
+    font-family: cursive;
+}
