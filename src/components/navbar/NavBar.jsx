@@ -3,7 +3,8 @@ import CartWidget from "../CartWidget/CartWidget";
 import "./style.css";
 
 
-const NavBar = () => {
+const NavBar = (props) => {
+  const {title}=props
   return (
     
     <div className="navBar">
@@ -16,8 +17,8 @@ const NavBar = () => {
           0 <button>agregar</button>
         </p></div>
       </div>
-      <p className="title">Papiros, libros desde siempre</p>
-      <ItemListContainer></ItemListContainer>
+      <h1 className="title">{title}</h1>
+      
     </div>
   );
 };

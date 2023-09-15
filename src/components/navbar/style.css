@@ -5,12 +5,14 @@
  display: flex;
  align-items: center;
  padding: 20px;
+ display: flex;
  
- justify-content: space-between;
+ 
 
 }
 
 .title {
     size: 150px;
-    font-family: cursive;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 400px;
 }
