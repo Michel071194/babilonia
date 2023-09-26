@@ -32,7 +32,7 @@ import './style.css'
           <li>
            <img  style={{width:'300px', height:"300px"}}  src={products.image} alt="" />
            <p>{products.title}</p> 
-           <p>{products.price}</p> 
+           <p>${products.price}</p> 
            <p>{products.description}</p>
             
             </li>
