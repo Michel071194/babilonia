@@ -1,18 +1,35 @@
 .navBar {
- width: 99%;
+ width: 100%;
  height: 60px;
- background-color: bisque;
+ background-color: rgb(229, 186, 106);
  display: flex;
  align-items: center;
- padding: 20px;
- display: flex;
+ padding: 10px;
+ justify-content: space-around;
  
  
+   
+   
 
 }
 
+
 .title {
-    size: 150px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    margin-left: 400px;
+    font-size: 170%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 120px;
+    margin-right: 330px;
+}
+
+.logo {
+    color: brown;
+    
+}
+
+.count {
+    color: blanchedalmond;
+   align-items: center;
+   display: grid;
+   grid-template-columns: 15% 33% 33%;
+   
 }

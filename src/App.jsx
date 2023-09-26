@@ -1,16 +1,12 @@
-import ItemListContainer from './components/ItemListContainer/ItemListContainer'
+import Navigation from './routes/Navigation'
 import './App.css'
-import NavBar from './components/NavBar/NavBar'
+
 
 
 function App() {
  
   return (
-    <main>
-     <NavBar title={'Odisea'}/>
-    
-     <ItemListContainer titList={'Menú'}/>
-    </main>
+    <Navigation/>
   )
 }
 

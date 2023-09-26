@@ -1,0 +1,17 @@
+.cardDetalle{
+    height: 530px;
+    width: 80%;
+    background-color: rgb(249, 213, 159);
+    margin-left: 110px;
+    padding: 10px 10px 5px 10px;
+    text-align: center ;
+    
+}
+
+.sectorCount{
+    width: 50%;
+    height: 60px;
+    background-color: rgb(246, 237, 139);
+    margin-left: 240px;
+   align-items: center;
+}

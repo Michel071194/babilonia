@@ -1,0 +1,40 @@
+.cardMenu{
+    height: 70px;
+    width: 100%;
+    color: black;
+    background-color: rgb(249, 221, 183);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    
+    
+   
+}
+
+.itemListContainer{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    
+}
+
+.cardProduct{
+    height: 580px;
+    width: 370px;
+    background-color: rgb(242, 200, 141);
+    margin-bottom: 80px;
+    margin-left: 100px;
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+    text-align: justify;
+    
+}
+
+.linkMenu{
+    text-decoration: none;
+    color: black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
