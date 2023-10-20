@@ -6,7 +6,7 @@ Este sitio web es una colección de libros y cómics de todo el mundo para lecto
 Para instalar el sitio web, siga los siguientes pasos:
 
 1. Clonar el repositorio.
-
+https://github.com/Michel071194/babilonia.git
 2. Instalar las dependencias.
 npm install vite 
 firebase 
