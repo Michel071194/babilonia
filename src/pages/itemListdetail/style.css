@@ -1,17 +1,37 @@
-.cardDetalle{
-    height: 530px;
-    width: 80%;
-    background-color: rgb(249, 213, 159);
-    margin-left: 110px;
-    padding: 10px 10px 5px 10px;
-    text-align: center ;
+.cardDetail{
+    height: 440px;
+    width: 92%;
+    background-color: rgb(230, 179, 70);
+    margin-left: 40px;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 100%;
+    padding: 0px;
+}
+
+
+.divAgregarAlCarrito{
+    height: 40px;
+    width: 350px;
+    background-color:rgb(247, 216, 129);
+    margin: 210px 50px 20px 200px;
+   display: grid;
+   grid-template-rows: 50% 50%;
+   padding: 5px 10px 5px 10px;
+   text-align: center;
+  
+}
+
+.titleDetail{
+    margin-left: 430px;
+}
+
+.caracteristicas {
+    text-align: justify;
+    margin: 5px 10px 5px 10px;
     
 }
 
-.sectorCount{
-    width: 50%;
-    height: 60px;
-    background-color: rgb(246, 237, 139);
-    margin-left: 240px;
-   align-items: center;
+.ring {
+    margin: 200px 100px 300px 200px ;
 }

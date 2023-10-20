@@ -1,5 +1,5 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
-import {ItemListContainer, ItemListDetailConteiner} from '../pages'
+import {CartPage, ItemListContainer, ItemListDetailConteiner} from '../pages'
 
 const Navigation= ()=>{
 
@@ -15,6 +15,10 @@ const Navigation= ()=>{
       {
         path:'/:category/:id',
         element: <ItemListContainer/>
+      },
+      {
+        path: '/cart',
+        element: <CartPage/>
       } 
       
     ])

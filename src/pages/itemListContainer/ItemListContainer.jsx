@@ -1,85 +1,95 @@
 
 import Layout from "../../components/Layout/Layout"
-import NavBar from "../../components/navbar/NavBar"
+import { ThreeBody } from '@uiball/loaders'
+
+
 import Item from "../../components/Item/Item"
-import { useEffect, useState} from "react"
-import {productos} from "../../components/products/products"
+import React, { useContext, useEffect, useState} from "react"
+
 import { useParams, Link } from 'react-router-dom'
 import "./style.css"
+import { CartCtx } from "../../context/CartContext"
+import {collection, getDocs, query, where } from "firebase/firestore"
+import { db } from "../../db/db"
+import ItemList from "../../components/ItemList/ItemList"
 
 
+const ItemListContainer = () => {
+  const { category } = useParams();
+  const { listBooks, setListBooks } = useContext(CartCtx);
+  const [isLoading, setIsLoading] = useState(true);
+ 
 
-const ItemListContainer = ()=>{
-    const [isLoading, setLoading]= useState(true)  
-    const [products, setProducts] = useState([])
-    const {category}=useParams()
-   
+  useEffect(() => {
+    const bookCollection = collection(db, "Librería");
+    getDocs(bookCollection).then((response) => {
+      const booksFireBase = response.docs.map((books) => ({
+        id: books.id,
+        ...books.data()
+      }));
+      setListBooks(booksFireBase);
+      setIsLoading(false);
+    });
 
-
-useEffect(()=>{
-   setTimeout(()=>{
-    setProducts(productos)
-   setLoading(false)
-},2000)
-}, []);
-
-
-    return(
-       <Layout>
-       
-
+    const filterByCategory = query(bookCollection, where("Category", "==", "Comic"));
+    getDocs(filterByCategory).then((response) => {
+      const book = response.docs.map((books) => ({ id: books.id, ...books.data() }));
+     console.log(book);
       
-        <NavBar title={'Tienda'}/>
-        
-        
-       <div >
-        <div className="cardMenu"> 
-        <Link className="linkMenu" to={'/jewelery/${}'}>Joyería</Link>
-        <Link  className="linkMenu" to={"/men's clothing/${}"}>Ropa de hombre</Link>
-        <Link className="linkMenu" to={"/women's clothing/${}"}>Ropa de mujer</Link>
-        <Link className="linkMenu" to={'/electronics/${}'}>Tecnología</Link>
-        <Link className="linkMenu" to={'/'}>Todos los productos</Link>
-        </div>
-      <div className="itemListContainer">
-     {isLoading ? 
-       (<h1>Cargando...</h1>):
-       products && !category ?(
-         products.map((productos) => (
-           <Item  key={products.id}
-             id={productos.id} 
-             nombre={productos.title}
-             descripcion={productos.description} 
-             precio={productos.price}
-             imgUrl={productos.image}
-            
-       /> ))
-          
-         
-         ):(
-            products
-        ?.filter((producto)=> producto.category=== category)
-        .map((productos)=> (
-            <Item key={products.id}
-              id={productos.id} 
-              nombre={productos.title}
-              descripcion={productos.description} 
-              precio={productos.price}
-              imgUrl={productos.image}
+    })
+  }, [category]);
+
+  const MemoizedItem = React.memo(Item);
+
+  const bookList = listBooks.map((book) => (
+    <MemoizedItem
+      id={book.id}
+      nombre={book.Name}
+      descripcion={book.Description}
+      precio={book.Price}
+      stock={book.Stock}
+      imgUrl={book.Image}
+    />
+  ));
+
+   const booksFilter= listBooks.filter(books=>books.Category === category)
+            .map((biblio) => (
+              <MemoizedItem
+                id={biblio.id}
+                nombre={biblio.Name}
+                descripcion={biblio.Description}
+                precio={biblio.Price}
+                stock={biblio.Stock}
+                imgUrl={biblio.Image}
               />
-          ))
-         )}
-         
-         </div>
-     </div>
-       
+            ))
+
+  const ItemListMemo = React.memo(ItemList);
+
+  return (
+    <Layout>
+      <ItemListMemo>
+        <div className="cardMenu">
+          <Link className="linkMenu" to={'/Filosofía/${}'}>Filosofía</Link>
+          <Link className="linkMenu" to={'/Comic/${}'}>Comic</Link>
+          <Link className="linkMenu" to={'/Ciencia ficción/${}'}>Ciencia ficción</Link>
+          <Link className="linkMenu" to={'/Suspenso/${}'}>Suspenso</Link>
+          <Link className="linkMenu" to={'/Poesía/${}'}>Poesía</Link>
+        </div>
+        <div className="itemListContainer">
+          {isLoading ? (
+            <ThreeBody size={35} speed={2.5} color="black"/>) :!category? bookList: booksFilter}
+        </div>
+      </ItemListMemo>
+    </Layout>
+  );
+};
+
+export default ItemListContainer;
         
     
    
 
-       </Layout>
-    )
-}
+ 
 
 
-
-export default ItemListContainer

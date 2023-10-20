@@ -1,13 +1,17 @@
+import { useContext } from "react"
 import "./style.css"
 import {FaCartArrowDown} from 'react-icons/Fa'
+import { CartCtx } from "../../context/CartContext"
+import { Badge} from '@mui/material'
 
-const CartWidget = (props)=> {
-   
+const CartWidget = ()=> {
+   const {cart}= useContext(CartCtx)
     return ( 
-    <div className="cartWidget" >
-        <FaCartArrowDown className="imgCart" size={30}/>
-       <div >{props.children}</div> 
-       </div>
+   
+        <Badge badgeContent={cart.length} color="primary">
+  <FaCartArrowDown size={30}/>
+</Badge>
+       
     )
 }
 

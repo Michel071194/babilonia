@@ -1,7 +1,17 @@
+import Layout from "../../components/Layout/Layout"
+import { Link } from "react-router-dom"
 
-const CheckOut= ()=>{
+
+const CheckOut= ({children})=>{
     return(
-        <div></div>
+        <Layout>
+             <Link style={{alignContent:"center", textDecoration:"none"}} to={'/'} >Seguir comprando</Link>
+            {children}
+            
+           
+            
+            </Layout>
+        
     )
 }
 
